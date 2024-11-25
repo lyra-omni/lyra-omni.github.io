@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Mini-Gemini">
+  <meta name="keywords" content="GPT-4, open-source, vision-language">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini-Gemini</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <link rel="shortcut icon" href="path/to/favicon.ico" type="image/x-icon">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  </head>
+
+  <style>
+
+    #main{
+        position: relative;;
+        width: 1200px;
+    }
+
+    .box{
+        float: left;
+        padding: 15px 0 0 15px;
+/*        background-color: red;*/
+    }
+
+    .pic{
+        width: 500px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .pic img{
+        width: 500px;
+    }
+
+  </style>
+
+  <body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><img id="logo" width="5%" src="images/lyra.png"> Lyra:</h1>
+          <h2 class="title is-2 publication-title">An Efficient, Speech-Centric Framework for Omni-Cognition</h2>
+          <div class="is-size-5">
+            <span class="author-block">
+              <a href="https://zhishengzhong.com/" style="color:#008AD7;font-weight:normal;">Zhisheng Zhong*<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://wcy1122.github.io/" style="color:#008AD7;font-weight:normal;">Chengyao Wang*<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://liuricky.github.io/" style="color:#008AD7;font-weight:normal;">Yuqi Liu*<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://senqiaoyang.com/" style="color:#008AD7;font-weight:normal;">Senqiao Yang<sup></sup></a>,
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=3oMQsq8AAAAJ&hl=zh-CN" style="color:#008AD7;font-weight:normal;">Longxiang Tang<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://julianjuaner.github.io/" style="color:#008AD7;font-weight:normal;">Yuechen Zhang<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://julietljy.github.io/" style="color:#008AD7;font-weight:normal;">Jingyao Li<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://taintaintainu.github.io/" style="color:#008AD7;font-weight:normal;">Tianyuan Qu<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://yanwei-li.com/" style="color:#008AD7;font-weight:normal;">Yanwei Li<sup></sup></a>,                
+            </span>
+            <br>
+            <span class="author-block">
+              <a href="https://yukangchen.com/" style="color:#008AD7;font-weight:normal;">Yukang Chen<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=Xg8NCKgAAAAJ&hl=zh-CN" style="color:#008AD7;font-weight:normal;">Shaozuo Yu<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://stonewst.github.io/" style="color:#008AD7;font-weight:normal;">Sitong Wu<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://appsrv.cse.cuhk.edu.hk/~ericlo/" style="color:#008AD7;font-weight:normal;">Eric Lo<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://shuliu1993.github.io/" style="color:#008AD7;font-weight:normal;">Shu Liu<sup></sup></a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://jiaya.me/" style="color:#008AD7;font-weight:normal;">Jiaya Jia<sup></sup></a>,                
+            </span>
+            
+          </div>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b> The Chinese University of Hong Kong </span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b> Hong Kong University of Science and Technology </span>
+          </div>
+
+          <br>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              
+              
+              <span class="link-block">
+                <a href="https://github.com/dvlab-research/MiniGemini" target="_blank" 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              
+              <span class="link-block">
+                <a href="http://103.170.5.190:7860/" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-laugh"></i>
+                  </span>
+                  <span>Demo</span>
+                  </a>
+              </span>
+
+              <span class="link-block">
+                      <a href="https://huggingface.co/collections/YanweiLi/mini-gemini-6603c50b9b43d044171d0854" target="_blank"
+                         class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        🤗
+                      </span>
+                      <span>Models</span>
+                    </a>
+                  </span>
+              
+              <span class="link-block">
+                    <a href="https://huggingface.co/collections/YanweiLi/mini-gemini-data-660463ea895a01d8f367624e" target="_blank"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-database"></i>
+                      </span>
+                    <span>Data</span>
+                  </a>
+                </span>
+
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.18814" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            <strong><font>Updates</font></strong>: Lyra is comming! We release the paper, code, data, models, and demo for Lyra.
+            <br>
+            </p>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- <div align="center">
+<iframe
+  id="gradio"
+	src="http://103.170.5.190:7864/"
+	frameborder="0"
+	width="1300"
+	height="2300"
+></iframe>
+</div> -->
+
+<link rel="stylesheet" type="text/css" href="js/simple_style.css" />
+<script type="text/javascript" src="js/simple_swiper.js"></script>
+
+<section class="section">
+  <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+          <p>
+            As Multi-modal Large Language Models (MLLMs) evolve, expanding beyond single-domain capabilities is essential to meet the demands for more versatile and efficient AI.
+            However, previous omni-models have insufficiently explored speech, neglecting its integration with multi-modality.
+            We introduce Lyra, an efficient MLLM that enhances multi-modal abilities, including advanced long speech comprehension, sound understanding, cross-modality efficiency, and seamless speech interaction.
+            To achieve efficiency and speech-centric capabilities, Lyra employs three strategies:
+            (1) leveraging existing open-source large models and a proposed multi-modlity LoRA to reduce training costs and data requirements;
+            (2) using a latent multi-modality regularizer and extractor to strengthen the relationship between speech and other modalities, thereby enhancing model performance;
+            and (3) constructing a high-quality, extensive dataset that includes 1.5M multi-modal (language, vision, audio) data samples and 12K long speech samples, enabling Lyra to handle complex long speech inputs and achieve more robust omni-cognition.
+            Compared to other omni-methods, Lyra achieves state-of-the-art performance on various vision-language, vision-speech, and speech-language benchmarks, while also using fewer computational resources and less training data.
+          </p>
+          </div>
+          <img id="model" width="100%" src="images/teaser.png">
+          </h3>
+      </div>
+      </div>
+      <br>
+      <br>
+
+<!-- Paper Model. -->
+<div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Model</h2>
+      <div class="content has-text-justified">
+        <p>
+          Lyra supports multi-modal inputs. When the data contains a speech modality, we use the latent cross-modality regularizer to assist.
+          Data from each modality is processed through encoders and projectors before being sent into the LLM.
+          Within the LLM, multi-modality LoRA and latent multi-modality extraction modules operate synergistically, facilitating the simultaneous
+          generation of both speech and text outputs.
+        </p>
+      </div>  
+      <img id="model" width="100%" src="images/framework.png">
+      </h3>   
+    </div>
+  </div>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+@article{zhong2024lyra,
+  title={Lyra: An Efficient, Speech-Centric Framework for Omni-Cognition},
+  author={Zhong, Zhingsheng and Wang, Chengyao and Liu, Yuqi and Yang, Senqiao and Tang, Longxiang and Zhang, Yuechen and Li, Jingyao and Qu, Tianyuan and Li, Yanwei and Chen, Yukang and Yu, Shaozuo and Wu, Sitong and Lo, Eric and Liu, Shu and Jia, Jiaya},
+  journal={arXiv preprint arXiv:2403.18814},
+  year={2024}
+}
+  </code></pre>
+    </div>
+  </section>
+  
+
+  <section class="section" id="Acknowledgement">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Acknowledgement</h2>
+      <p>
+        This website is adapted from <a
+        href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license"
+                                            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+        Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+    </div>
+  </section>
+
+<section class="section">
+    <!-- Results. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Examples</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<script src="js/Underscore-min.js"></script>
+<script src="js/index.js"></script>
+
+<!-- <section class="section"> -->
+  <div class="columns is-centered has-text-centered">
+    <div id="main">
+      <img src="images/demo_0.png" width="60%" alt="">
+    <br><br>
+    <div id="main">
+      <img src="images/demo_1.png" width="60%" alt="">
+    <br><br>
+    <div id="main">
+      <img src="images/demo_2.png" width="60%" alt="">
+    <br><br>
+    <div id="main">
+      <img src="images/demo_3.png" width="60%" alt="">
+    <br><br>
+    
+</section>
+
+
+    
+
+</body>
+
+</html>
